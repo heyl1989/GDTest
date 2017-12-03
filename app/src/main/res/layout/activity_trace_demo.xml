@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 轨迹纠偏按钮 -->
+
+    <LinearLayout
+        android:id="@+id/top_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/grasp_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="画线" />
+
+        <Button
+            android:id="@+id/clean_finish_overlay_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="清除标志" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_button">
+
+        <!-- 地图控件 -->
+        <com.amap.api.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+
+            <!-- assets 轨迹选择 -->
+
+            <Spinner
+                android:id="@+id/record_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <!-- 轨迹纠偏坐标系选择 高德 | GPS | 百度 -->
+
+            <RadioGroup
+                android:id="@+id/coordinate_type_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/button_amap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="高德"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/button_gps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gps"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/button_baidu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="百度"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:orientation="vertical">
+
+            <!-- 总里程结果展示 -->
+
+            <TextView
+                android:id="@+id/show_all_dis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="距离"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:visibility="visible" />
+            <!-- 停车时长结果展示 -->
+
+            <TextView
+                android:id="@+id/show_low_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="停止事件"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
